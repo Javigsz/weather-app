@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif; 
+}
+
+@theme {
+  --color-background: #232946;
+  --color-button: #eebbc3;
+  --color-paragraph: #b8c1ec;
+}
+
+@theme {
+  --container-padding: 2rem;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
