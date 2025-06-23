@@ -3,15 +3,15 @@
     <!-- Preview Banner -->
     <div
       v-if="route.query.preview"
-      class="text-background p-4 bg-paragraph w-full text-center"
+      class="text-background p-4 bg-button w-full text-center"
     >
       <p>
         You are currently previewing this city, click the "+" icon to start
         tracking this city.
       </p>
     </div>
-    <div class="flex flex-col items-center text-white py-12">
-      <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
+    <div class="flex flex-col items-center text-paragraph py-12">
+      <h1 class="text-6xl mb-2 text-white">{{ route.params.city }}</h1>
       <p class="text-sm mb-12"></p>
       {{
         new Date(weatherData.current.time).toLocaleDateString("en-US", {
@@ -30,12 +30,12 @@
     <WeatherIcon
       :code="weatherData.current.weather_code"
       :size="'100px'"
-      class="py-6 text-white"
+      class="py-6 text-button"
     />
-    <p class="text-8xl mb-8 text-white">
+    <p class="text-6xl mb-8 text-white">
       {{ weatherData.current.temperature_2m }}°
     </p>
-    <div class="flex flex-col items-center gap-4 text-white pb-10">
+    <div class="flex flex-col items-center gap-4 text-paragraph pb-10">
       <div class="flex gap-4">
         <div class="flex flex-col items-center">
           <p class="text-sm">Apparent temperature</p>
@@ -54,8 +54,8 @@
     <hr class="border-white/30 w-full" />
     <!-- Hourly Weather -->
     <div class="max-w-screen-md w-full py-12">
-      <div class="mx-8 text-white">
-        <h2 class="mb-4">Hourly Weather</h2>
+      <div class="mx-8 text-paragraph">
+        <h2 class="mb-4 text-xl text-white">Hourly Weather</h2>
         <div class="flex gap-10 overflow-x-scroll pb-6">
           <div
             v-for="hour in next10Hours"
@@ -69,7 +69,7 @@
                 })
               }}
             </p>
-            <WeatherIcon :code="hour.code" />
+            <WeatherIcon :code="hour.code" class="text-button" />
             <p class="text-xl">{{ Math.round(hour.temp) }}°</p>
           </div>
         </div>
@@ -78,8 +78,8 @@
     <hr class="border-white/30 w-full" />
     <!-- Weelky Weather -->
     <div class="max-w-screen-md w-full py-12">
-      <div class="mx-8 text-white">
-        <h2 class="mb-4">Weekly Weather</h2>
+      <div class="mx-8 text-paragraph">
+        <h2 class="mb-4 text-xl text-white">Weekly Weather</h2>
         <div
           v-for="(day, index) in weatherData.daily.time"
           :key="day"
@@ -95,6 +95,7 @@
           <WeatherIcon
             :code="weatherData.daily.weather_code[index]"
             :size="'40px'"
+            class="text-button"
           />
           <div class="flex gap-2 flex-1 justify-end">
             <p class="text-lg">

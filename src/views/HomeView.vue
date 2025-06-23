@@ -6,10 +6,10 @@
         v-model="searchQuery"
         @input="getSearchResults"
         placeholder="Search for a city..."
-        class="py-2 px-1 w-full bf-transparent border-b focus:border-paragraph focus:outline-none focus:shadow-lg"
+        class="py-2 px-1 w-full bf-transparent border-b focus:border-button focus:outline-none focus:shadow-lg"
       />
       <ul
-        class="absolute bg-paragraph text-background w-full shadow-md py-2 px-1 top[66px] z-10"
+        class="absolute bg-background text-paragraph border-2 border-paragraph border-t-transparent w-full shadow-md py-2 px-1 top[66px] z-10 rounded-md overflow-y-auto max-h-60"
         v-if="mapboxSearchResults"
       >
         <p v-if="searchError" class="text-red-500 text-sm mb-2">
@@ -26,7 +26,7 @@
           <li
             v-for="searchResult in mapboxSearchResults"
             :key="searchResult.id"
-            class="py-2 cursor-pointer border-2 hover:border-background border-transparent"
+            class="py-2 cursor-pointer border-2 hover:border-button rounded-md border-transparent"
             @click="previewCity(searchResult)"
           >
             {{ searchResult.place_name }}
@@ -38,7 +38,7 @@
       <Suspense>
         <CityList />
         <template #fallback>
-          <CityCardSkeleton />
+          <CityCardSkeleton :dots="3" />
         </template>
       </Suspense>
     </div>

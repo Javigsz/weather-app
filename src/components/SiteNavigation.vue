@@ -6,16 +6,16 @@
       <RouterLink :to="{ name: 'home' }">
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-sun text-2xl"></i>
-          <p class="text-2xl hover:text-paragraph">The Local Weather</p>
+          <p class="text-2xl hover:text-button">The Local Weather</p>
         </div>
       </RouterLink>
       <div class="flex gap-3 flex-1 justify-end">
         <i
-          class="fa-solid fa-circle-info text-xl hover:text-paragraph duration-150 cursor-pointer"
+          class="fa-solid fa-circle-info text-xl hover:text-button duration-150 cursor-pointer"
           @click="toggleModal"
         ></i>
         <i
-          class="fa-solid fa-plus text-xl hover:text-paragraph duration-150 cursor-pointer"
+          class="fa-solid fa-plus text-xl hover:text-button duration-150 cursor-pointer"
           @click="addCity"
           v-if="route.query.preview"
         ></i>
